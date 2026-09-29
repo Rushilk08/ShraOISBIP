@@ -6,7 +6,7 @@
   --serif:"Playfair Display",Georgia,"Times New Roman",serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
+html{scroll-behavior:smooth;scroll-padding-top:5px}
 body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.65;overflow-x:hidden}
 /* film-grain overlay for a photographic feel */
 body::before{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.07;
@@ -73,12 +73,57 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px
 .card:nth-child(2){margin-top:46px}
 .card:nth-child(3){margin-top:92px}
 .card:hover{transform:translateY(-8px)}
-.photo{position:relative;width:100%;height:330px;display:grid;place-items:center}
-.photo::before{content:"";position:absolute;width:70%;aspect-ratio:1;bottom:18px;background:linear-gradient(145deg,#fff,#e3d6f8);
-  transform:rotateX(58deg) rotateZ(-38deg);border-radius:14px;
-  box-shadow:-9px 9px 0 -2px rgba(224,112,255,.6),-20px 24px 34px rgba(90,70,160,.3)}
-.photo img{position:relative;height:88%;transition:transform .5s}
+/* PHOTO CONTAINER - Increased container height */
+.photo {
+  position: relative;
+  width: 100%;
+  height: 380px; /* Expanded from 330px to make room for larger bottles */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* BASE PLATFORM */
+.photo::before {
+  content: "";
+  position: absolute;
+  width: 75%;
+  aspect-ratio: 1;
+  bottom: 24px;
+  background: linear-gradient(145deg, #fff, #e3d6f8);
+  transform: rotateX(58deg) rotateZ(-38deg);
+  border-radius: 14px;
+  box-shadow: -9px 9px 0 -2px rgba(224, 112, 255, 0.6), -20px 24px 34px rgba(90, 70, 160, 0.3);
+}
+
+/* PERFUME BOTTLE IMAGE - Upscaled */
+.photo img {
+  position: relative;
+  height: 95%; /* Increased height ratio */
+  width: auto;
+  object-fit: contain;
+  transform: scale(1.25); /* Upscales the bottle image by 25% */
+  transition: transform 0.5s;
+  z-index: 1;
+}
+
+.card:hover .photo img {
+  transform: scale(1.32) rotate(-3deg); /* Dynamic hover effect */
+}
+
+/* CARD HEADINGS - Ensures names stay clearly separated below */
+.card h3 {
+  position: relative;
+  z-index: 2;
+  margin-top: 10px;
+}
 .card:hover .photo img{transform:scale(1.07) rotate(-3deg)}
+.card h3 {
+  margin-top: 20px;
+  position: relative;
+  z-index: 2; /* Ensures text stays on top if anything overlaps */
+}
 .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0 22px}
 .chips li{list-style:none;font-size:.75rem;padding:4px 12px;border-radius:99px;background:rgba(255,255,255,.7);color:var(--ink)}
 .price{display:block;font-weight:600;color:var(--ink);margin:6px 0 16px}
@@ -107,7 +152,15 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px
 .quote{background:rgba(255,255,255,.75);padding:30px;border-radius:22px;border-bottom:4px solid var(--pink)}
 .quote p{color:var(--ink);font-style:italic;margin-bottom:14px}
 .stars{color:var(--gold);letter-spacing:3px}
-.banner{margin-top:70px;background:linear-gradient(135deg,var(--lav2),var(--pink));border-radius:34px;padding:60px 24px;text-align:center;color:#fff}
+.banner {
+  margin-top: 70px;
+  scroll-margin-top: 65px; /* Reduced so the page stops higher, keeping contact info visible below */
+  background: linear-gradient(135deg, var(--lav2), var(--pink));
+  border-radius: 34px;
+  padding: 60px 24px;
+  text-align: center;
+  color: #fff;
+}
 .banner p{color:#fff;margin:12px 0 26px}
 .banner .btn{background:#fff;color:var(--ink)}
 
