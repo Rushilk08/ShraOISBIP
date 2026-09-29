@@ -6,7 +6,7 @@
   --serif:"Playfair Display",Georgia,"Times New Roman",serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
+html{scroll-behavior:smooth;scroll-padding-top:5px}
 body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.65;overflow-x:hidden}
 /* film-grain overlay for a photographic feel */
 body::before{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.07;
@@ -152,7 +152,15 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px
 .quote{background:rgba(255,255,255,.75);padding:30px;border-radius:22px;border-bottom:4px solid var(--pink)}
 .quote p{color:var(--ink);font-style:italic;margin-bottom:14px}
 .stars{color:var(--gold);letter-spacing:3px}
-.banner{margin-top:70px;background:linear-gradient(135deg,var(--lav2),var(--pink));border-radius:34px;padding:60px 24px;text-align:center;color:#fff}
+.banner {
+  margin-top: 70px;
+  scroll-margin-top: 40px; /* Reduced so the page stops higher, keeping contact info visible below */
+  background: linear-gradient(135deg, var(--lav2), var(--pink));
+  border-radius: 34px;
+  padding: 60px 24px;
+  text-align: center;
+  color: #fff;
+}
 .banner p{color:#fff;margin:12px 0 26px}
 .banner .btn{background:#fff;color:var(--ink)}
 
