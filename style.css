@@ -191,3 +191,17 @@ footer a:hover{color:var(--pink)}
   .split .art{min-height:320px}
 }
 @media (prefers-reduced-motion:reduce){.hero-img img,.track{animation:none}}
+/* PC / Desktop: Keep banner and footer visible together */
+@media (min-width: 769px) {
+  #contact {
+    scroll-margin-top: 65px;
+  }
+}
+
+/* Mobile / Phone: Ensures 100% of contact, follow, and copyright show */
+@media (max-width: 768px) {
+  #contact {
+    scroll-margin-top: 0px;
+    padding-bottom: 90px; /* Expands bottom space so phone browser can scroll all the way down */
+  }
+}
