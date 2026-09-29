@@ -154,7 +154,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px
 .stars{color:var(--gold);letter-spacing:3px}
 .banner {
   margin-top: 70px;
-  scroll-margin-top: 40px; /* Reduced so the page stops higher, keeping contact info visible below */
+  scroll-margin-top: 65px; /* Reduced so the page stops higher, keeping contact info visible below */
   background: linear-gradient(135deg, var(--lav2), var(--pink));
   border-radius: 34px;
   padding: 60px 24px;
